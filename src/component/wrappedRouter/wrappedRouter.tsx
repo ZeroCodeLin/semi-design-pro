@@ -59,12 +59,12 @@ const Perm: React.FC<any> = props => {
         const isAuth = checkPerm(list);
 
         if (!isAuth) {
-            navigator('/404', { replace: true })
+            navigator('/403', { replace: true })
         }
         return isAuth
     }
 
-    return isAuth() ? props.children : <Navigate to="/404" replace />
+    return isAuth() ? props.children : <Navigate to="/403" replace />
 }
 
 export const WrappedRouter: React.FC<WrappedRouterProps> = props => {
