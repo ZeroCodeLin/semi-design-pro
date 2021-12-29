@@ -5,6 +5,7 @@ import { IconUser, IconStar, IconSetting } from '@douyinfe/semi-icons';
 import 'reset-css';
 
 import { BaseLayout } from './layout';
+import { Login } from './login';
 import { CorePage403, CorePage404, CorePage500 } from './corePage';
 import { WrappedRouter } from '../component';
 
@@ -29,6 +30,7 @@ export const App: React.FC = props => {
     return (
         <HashRouter>
             <Routes>
+                <Route path="/login" element={<Login />} />
                 <Route
                     path="/"
                     element={
