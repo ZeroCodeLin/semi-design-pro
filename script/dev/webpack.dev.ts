@@ -2,6 +2,7 @@ const path = require('path')
 import webpack from 'webpack'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+import mockMiddleware from './mockMiddleware';
 
 module.exports = {
     entry: {
@@ -9,7 +10,6 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        // publicPath: '/dist/',
         filename: 'bundle.js'
     },
     resolve: {
@@ -59,9 +59,11 @@ module.exports = {
         // new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        port: "8010",
-        proxy: {
-            '/api': 'http://localhost:3000',
-        },
+        onBeforeSetupMiddleware: function (devServer: any) {
+            if (!devServer) {
+                throw new Error('webpack-dev-server is not defined');
+            }
+            devServer.app.use(mockMiddleware)
+        }
     },
 }
