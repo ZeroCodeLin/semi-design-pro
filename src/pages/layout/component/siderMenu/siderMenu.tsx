@@ -61,11 +61,11 @@ export const SiderMenu: React.FC<SiderMenuProps> = (props) => {
 
     return (
         <Nav
-            bodyStyle={{ height: 320 }}
             openKeys={openKeys}
             selectedKeys={[selectedKeys]}
             onSelect={clickNav}
             onOpenChange={onOpenChange}
+            style={{ height: '100%' }}
         >
             <Nav.Header logo={<img src={logo} />} text={title} />
             {getNavItem()}

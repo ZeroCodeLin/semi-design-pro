@@ -39,7 +39,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = (props) => {
                 <Content
                     style={{
                         padding: '24px',
-                        backgroundColor: 'var(--semi-color-bg-0)',
+                        backgroundColor: '#eeeeee',
                         overflow: "auto",
                         height: "calc(100vh - 64px)"
                     }}
